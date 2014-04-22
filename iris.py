@@ -1,7 +1,7 @@
 __author__ = 'dan'
 
 '''
-Simple solution to the iris training dataset using scikit learn
+Simple solution to the iris training dataset using scikit learn (including example of how it can go bad)
 '''
 
 import numpy as np
