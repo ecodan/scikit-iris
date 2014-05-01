@@ -1,7 +1,8 @@
 __author__ = 'dan'
 
 '''
-Simple solution to the iris training dataset using scikit learn (including example of how it can go bad)
+Simple solution to the iris training dataset (for a training demo) using scikit learn (including example of how it can go bad)
+
 '''
 
 import numpy as np
@@ -10,6 +11,9 @@ from sklearn import cross_validation
 from sklearn import svm
 from sklearn import metrics
 
+#######################
+## MUNGE
+#######################
 # import and split data into X (features) and y (labels)
 iris = datasets.load_iris()
 X = iris.data
@@ -23,12 +27,18 @@ print('X data=\n' + str(X))
 # create training and test data (.75/.25 split)
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y)
 
+#######################
+## TRAIN
+#######################
 # create a model - in this case a simple support vector machine
 clf = svm.SVC(C=1.0, class_weight=None, kernel='rbf', degree=3, gamma=0.0, random_state=None, tol=0.0001)
 
 # train the classifier
 clf.fit(X_train, y_train)
 
+#######################
+## PREDICT AND CROSS VALIDATE
+#######################
 # output stats on how well the training data fits the model
 print('**********************************')
 pred = clf.predict(X_train)
